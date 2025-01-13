@@ -8,22 +8,24 @@ public class BackButton {
     private double buttonY;
     private double buttonWidth;
     private double buttonHeight;
+    private Button backButton;
     
 
 
-    public BackButton() {
+    public BackButton(Runnable buttonEvent) {
         buttonX = GameStart.getSceneWidth()*1/9;
         buttonY = GameStart.getSceneHeight()*8/9;
         buttonWidth = GameStart.getSceneHeight()*3/9;
-        buttonY = GameStart.getSceneHeight()*0.75/9;
-        Button exitButton = new Button("Back Graphic needed");
-        exitButton.setPrefSize(buttonWidth, buttonHeight);
-        exitButton.setLayoutX(buttonX);
-        exitButton.setLayoutY(buttonY);
+        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        backButton = new Button("Back Button");
+        backButton.setPrefSize(buttonWidth, buttonHeight);
+        backButton.setLayoutX(buttonX);
+        backButton.setLayoutY(buttonY);
+        backButton.setOnAction(event -> buttonEvent.run());
     }
 
-    public void pressed() {
-        //GameStart.switchToMenu();
+    public Button getButton() {
+        return backButton;
     }
 
 }

@@ -16,7 +16,7 @@ public class GameView{
     private Group group;
     private Scene gameScene;
 
-    public GameView (int sceneWidth, int sceneHeight){
+    public GameView (int sceneWidth, int sceneHeight, Runnable deathEvent){
         Platform platform = new Platform();
         Ball ball = new Ball(platform);
         group = new Group(platform.getRectangle(), ball.getCircle());
@@ -28,7 +28,7 @@ public class GameView{
         gameScene = new Scene(group, sceneWidth, sceneHeight);
         gameScene.setFill(Color.BLACK);
 
-        GameController.startGameplay(ball, blockList, platform, group);
+        GameController.startGameplay(ball, blockList, platform, group, deathEvent);
 
         // Set up keyevents for GameView
         gameScene.setOnKeyPressed(event -> {

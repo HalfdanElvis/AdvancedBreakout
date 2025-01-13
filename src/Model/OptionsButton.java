@@ -8,22 +8,24 @@ public class OptionsButton {
     private double buttonY;
     private double buttonWidth;
     private double buttonHeight;
+    private Button optionsButton;
     
 
 
-    public OptionsButton() {
+    public OptionsButton(Runnable buttonEvent) {
         buttonX = GameStart.getSceneWidth()/3;
-        buttonY = GameStart.getSceneHeight()*8/9;
+        buttonY = GameStart.getSceneHeight()-400;
         buttonWidth = GameStart.getSceneWidth()/3;
-        buttonY = GameStart.getSceneHeight()*0.75/9;
-        Button optionsButton = new Button();
+        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        optionsButton = new Button("Options Button");
         optionsButton.setPrefSize(buttonWidth, buttonHeight);
         optionsButton.setLayoutX(buttonX);
         optionsButton.setLayoutY(buttonY);
+        optionsButton.setOnAction(event -> buttonEvent.run());
     }
 
-    public void pressed() {
-        //GameStart.switchToOptions();
+    public Button getButton() {
+        return optionsButton;
     }
 
 }

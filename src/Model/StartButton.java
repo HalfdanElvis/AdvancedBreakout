@@ -8,22 +8,23 @@ public class StartButton {
     private double buttonY;
     private double buttonWidth;
     private double buttonHeight;
-    
+    private Button startButton;
 
 
-    public StartButton() {
+    public StartButton(Runnable buttonEvent) {
         buttonX = GameStart.getSceneWidth()/3;
-        buttonY = GameStart.getSceneHeight()*8/9;
+        buttonY = GameStart.getSceneHeight()-200;
         buttonWidth = GameStart.getSceneWidth()/3;
-        buttonY = GameStart.getSceneHeight()*0.75/9;
-        Button startButton = new Button();
+        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        startButton = new Button("Start Button");
         startButton.setPrefSize(buttonWidth, buttonHeight);
         startButton.setLayoutX(buttonX);
         startButton.setLayoutY(buttonY);
+        startButton.setOnAction(event -> buttonEvent.run());
     }
 
-    public void pressed() {
-        //GameStart.switchToGameView();
+    public Button getButton() {
+        return startButton;
     }
 
 }
