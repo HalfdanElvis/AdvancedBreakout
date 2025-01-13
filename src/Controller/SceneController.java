@@ -77,7 +77,23 @@ public class SceneController extends Application{
         });
     }
 
+    /*
+    public void switchToGameScene() {
+        stage.setScene(gameView.getScene());
+    }
 
+    public void switchToOptionsScene() {
+        stage.setScene(optionsView.getScene());
+    }
+
+    public void switchToHighscoreScene() {
+        stage.setScene(highscoreView.getScene());
+    }
+
+    public void switchToMainMenuScene() {
+        stage.setScene(mainMenuView.getScene());
+    }
+    */
 
     public static void main(String[] args) {
         launch(args);

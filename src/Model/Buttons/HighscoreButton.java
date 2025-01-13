@@ -17,6 +17,7 @@ public class HighscoreButton {
         buttonWidth = SceneController.getSceneWidth()/3;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
         highscoreButton = new Button("Highscore");
+        highscoreButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         highscoreButton.setPrefSize(buttonWidth, buttonHeight);
         highscoreButton.setLayoutX(buttonX);
         highscoreButton.setLayoutY(buttonY);

@@ -18,6 +18,7 @@ public class OptionsButton {
         buttonWidth = SceneController.getSceneWidth()/3;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
         optionsButton = new Button("Options");
+        optionsButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         optionsButton.setPrefSize(buttonWidth, buttonHeight);
         optionsButton.setLayoutX(buttonX);
         optionsButton.setLayoutY(buttonY);

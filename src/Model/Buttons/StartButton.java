@@ -19,6 +19,7 @@ public class StartButton {
         buttonWidth = SceneController.getSceneWidth()/3;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
         startButton = new Button("Start");
+        startButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         startButton.setPrefSize(buttonWidth, buttonHeight);
         startButton.setLayoutX(buttonX);
         startButton.setLayoutY(buttonY);

@@ -2,6 +2,7 @@ package Controller;
 import java.util.ArrayList;
 
 import Model.*;
+import View.GameView;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.util.Duration;
@@ -15,8 +16,8 @@ public class GameController {
             //Stops the game if a player loses
             if (ball.getY() - ball.getRadius()*2 > SceneController.getSceneHeight()){
                 gameplay.stop();
-                deathEvent.run();
                 gameRunning = false;
+                deathEvent.run();
             }
             ball.updatePosition();
             platform.updatePosition();

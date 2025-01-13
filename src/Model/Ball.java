@@ -14,7 +14,7 @@ public class Ball {
 
     public Ball (Platform platform){
         ball = new Circle(platform.getX()+platform.getWidth()/2,platform.getY()-8, 8);
-        getCircle().setFill(Color.GOLDENROD);
+        getCircle().setFill(Color.SKYBLUE);
         randomizeAngle();
     }
 

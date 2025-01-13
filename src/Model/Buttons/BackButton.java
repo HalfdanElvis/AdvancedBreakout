@@ -18,6 +18,7 @@ public class BackButton {
         buttonWidth = SceneController.getSceneHeight()*3/9;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
         backButton = new Button("Back Button");
+        backButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         backButton.setPrefSize(buttonWidth, buttonHeight);
         backButton.setLayoutX(buttonX);
         backButton.setLayoutY(buttonY);

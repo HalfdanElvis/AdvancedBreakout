@@ -20,7 +20,7 @@ public class MainMenuView{
         highscoreButton = new HighscoreButton(highscoreButtonEvent);
         exitButton = new ExitButton();
 
-        Image image = new Image("\\Images\\MainMenuBackground.png");
+        Image image = new Image("\\Resources\\MainMenuBackground.png");
         ImageView bg = new ImageView(image);
 
         // Create the menu layout

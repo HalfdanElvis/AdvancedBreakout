@@ -18,6 +18,7 @@ public class ExitButton {
         buttonWidth = SceneController.getSceneWidth()/3;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
         exitButton = new Button("Exit");
+        exitButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         exitButton.setPrefSize(buttonWidth, buttonHeight);
         exitButton.setLayoutX(buttonX);
         exitButton.setLayoutY(buttonY);
