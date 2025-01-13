@@ -1,8 +1,12 @@
-package View;
+package Controller;
+import View.GameView;
+import View.HighscoreView;
+import View.MainMenuView;
+import View.OptionsView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class GameStart extends Application{
+public class SceneController extends Application{
     private static int sceneWidth = 800;
     private static int sceneHeight = 600;
     private GameView gameView;

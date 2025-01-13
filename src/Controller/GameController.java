@@ -2,10 +2,8 @@ package Controller;
 import java.util.ArrayList;
 
 import Model.*;
-import View.GameStart;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import javafx.animation.KeyFrame;
 public class GameController {
@@ -13,9 +11,9 @@ public class GameController {
     static boolean gameRunning = false;
 
     public static void startGameplay(Ball ball, ArrayList<Block> blockList, Platform platform, Group group, Runnable deathEvent) {
-        gameplay = new Timeline(new KeyFrame(Duration.millis(16), e -> {
+        gameplay = new Timeline(new KeyFrame(Duration.millis(8), e -> {
             //Stops the game if a player loses
-            if (ball.getY() - ball.getRadius()*2 > GameStart.getSceneHeight()){
+            if (ball.getY() - ball.getRadius()*2 > SceneController.getSceneHeight()){
                 gameplay.stop();
                 deathEvent.run();
             }
@@ -24,6 +22,7 @@ public class GameController {
             CollisionManager.checkBorderCollision(ball);
             CollisionManager.blockCollision(ball, blockList, group);
             CollisionManager.collisionWithPlatform(ball, platform);
+            ball.setVelocity(ball.getVelocity()+(ball.getVelocity()*0.0001));
     
         }));
         gameplay.setCycleCount(Timeline.INDEFINITE);

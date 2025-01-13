@@ -4,7 +4,7 @@ import javafx.scene.shape.Circle;
 
 
 public class Ball {
-    private double velocity = 7;
+    private double velocity = 3.5;
     private double attack = 1;
     private double currentPierce = 0;
     private double maxPierce = 0;

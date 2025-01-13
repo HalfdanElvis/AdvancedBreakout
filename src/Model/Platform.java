@@ -1,5 +1,5 @@
 package Model;
-import View.GameStart;
+import Controller.SceneController;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -12,13 +12,13 @@ public class Platform {
     private boolean isMovingRight;
 
     public Platform(){
-        platformWidth = GameStart.getSceneWidth()/4;
-        platformHeight = GameStart.getSceneHeight()/30;
-        platform = new Rectangle(GameStart.getSceneWidth()/2-platformWidth/2, GameStart.getSceneHeight()*0.8, platformWidth, platformHeight); 
+        platformWidth = SceneController.getSceneWidth()/4;
+        platformHeight = SceneController.getSceneHeight()/30;
+        platform = new Rectangle(SceneController.getSceneWidth()/2-platformWidth/2, SceneController.getSceneHeight()*0.8, platformWidth, platformHeight); 
         getRectangle().setFill(Color.GREEN);
         isMovingLeft = false;
         isMovingRight = false;
-        velocity = 7;
+        velocity = 4;
     }
 
     public Rectangle getRectangle() {
@@ -91,8 +91,8 @@ public class Platform {
         if (getX() < 0) {
             setX(0);
         }
-        else if (getX()+getWidth() > GameStart.getSceneWidth()) {
-            setX(GameStart.getSceneWidth()-getWidth());
+        else if (getX()+getWidth() > SceneController.getSceneWidth()) {
+            setX(SceneController.getSceneWidth()-getWidth());
         }
     }
 }

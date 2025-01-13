@@ -11,7 +11,7 @@ import javafx.scene.Group;
 public class GameView{
     private int rows = 6;
     private int columns = 8;
-    private int level = 3;
+    private int level = 1;
     private Group group;
     private Scene gameScene;
 
@@ -52,6 +52,7 @@ public class GameView{
     }
 
     public Scene getScene() {
+
         return gameScene;
     }
 
