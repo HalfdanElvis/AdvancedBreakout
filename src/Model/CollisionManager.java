@@ -2,7 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 
-import View.GameView;
+import View.GameStart;
 import javafx.scene.Group;
 import javafx.scene.shape.Rectangle;
 
@@ -39,9 +39,9 @@ public class CollisionManager {
             ball.sideHit();
             ball.setX(ball.getRadius());
         }
-        else if ((ball.getX() + ball.getRadius() >= GameView.getSceneWidth())) {
+        else if ((ball.getX() + ball.getRadius() >= GameStart.getSceneWidth())) {
             ball.sideHit();
-            ball.setX(GameView.getSceneWidth()-ball.getRadius());
+            ball.setX(GameStart.getSceneWidth()-ball.getRadius());
         }
 
         if ((ball.getY() - ball.getRadius() <= 0)) {
