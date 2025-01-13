@@ -13,26 +13,34 @@ public class GameView{
     private int columns = 8;
     private int level = 1;
     private Group group;
-    private Scene gameScene;
+    private Scene gameView;
+    private Platform platform;
+    private Ball ball;
+    private ArrayList<Block> blockList;
 
     public GameView (int sceneWidth, int sceneHeight, Runnable deathEvent){
-        Platform platform = new Platform();
-        Ball ball = new Ball(platform);
+        setupObjects();
+        gameView = new Scene(group, sceneWidth, sceneHeight);
+        gameView.setFill(Color.BLACK);
+        setupKeyEvents();
+
+        GameController.startGameplay(ball, blockList, platform, group, deathEvent);
+    }
+
+    public void setupObjects() {
+        platform = new Platform();
+        ball = new Ball(platform);
         group = new Group(platform.getRectangle(), ball.getCircle());
 
         
-        ArrayList<Block> blockList = Model.GenerateBlocks.generateBlocks(level,rows, columns);
+        blockList = Model.GenerateBlocks.generateBlocks(level,rows, columns);
         for (int i = 0; i < blockList.size(); i++){
             group.getChildren().add(blockList.get(i).getRectangle());
         }
+    }
 
-        gameScene = new Scene(group, sceneWidth, sceneHeight);
-        gameScene.setFill(Color.BLACK);
-
-        GameController.startGameplay(ball, blockList, platform, group, deathEvent);
-
-        // Set up keyevents for GameView
-        gameScene.setOnKeyPressed(event -> {
+    public void setupKeyEvents() {
+        gameView.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.LEFT) {
                 GameController.leftPressed(platform);
             } else if (event.getCode() == KeyCode.RIGHT) {
@@ -42,7 +50,7 @@ public class GameView{
             }
         });
 
-        gameScene.setOnKeyReleased(event -> {
+        gameView.setOnKeyReleased(event -> {
             if (event.getCode() == KeyCode.LEFT) {
                 platform.setMovingLeft(false);
             } else if (event.getCode() == KeyCode.RIGHT) {
@@ -53,7 +61,11 @@ public class GameView{
 
     public Scene getScene() {
 
-        return gameScene;
+        return gameView;
+    }
+
+    public Platform getPlatform() {
+        return platform;
     }
 
     

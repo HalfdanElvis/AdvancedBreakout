@@ -16,6 +16,7 @@ public class GameController {
             if (ball.getY() - ball.getRadius()*2 > SceneController.getSceneHeight()){
                 gameplay.stop();
                 deathEvent.run();
+                gameRunning = false;
             }
             ball.updatePosition();
             platform.updatePosition();

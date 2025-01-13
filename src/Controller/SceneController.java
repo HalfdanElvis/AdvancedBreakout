@@ -31,25 +31,43 @@ public class SceneController extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-
+        this.stage = stage;
         stage.setTitle("BREAKOUT!");
 
+        createGameScene();
+        createOptionsScene();
+        createHighscoreScene();
+        createMainMenuScene();
+
+        stage.setScene(mainMenuView.getScene());
+        stage.setResizable(false);
+        stage.show();
+
+    };
+
+    public void createGameScene() {
         gameView = new GameView(sceneWidth, sceneHeight, () -> {
-            
             stage.setScene(mainMenuView.getScene());
         });
+    }
 
+    public void createOptionsScene() {
         optionsView = new OptionsView(sceneWidth, sceneHeight, () -> {
             stage.setScene(mainMenuView.getScene());
         });
+    }
 
+    public void createHighscoreScene() {
         highscoreView = new HighscoreView(sceneWidth, sceneHeight, () -> {
             stage.setScene(mainMenuView.getScene());
         });
+    }
 
+    public void createMainMenuScene() {
         mainMenuView = new MainMenuView(sceneWidth, sceneHeight, () -> {
             
-            stage.setScene(gameView.getScene());
+            createGameScene();
+            stage.setScene(gameView.getScene()); 
         }, () -> {
             
             stage.setScene(optionsView.getScene());
@@ -57,14 +75,8 @@ public class SceneController extends Application{
 
             stage.setScene(highscoreView.getScene());
         });
+    }
 
-        
-
-        stage.setScene(mainMenuView.getScene());
-        stage.setResizable(false);
-        stage.show();
-
-    };
 
 
     public static void main(String[] args) {
