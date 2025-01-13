@@ -1,6 +1,6 @@
 package View;
 
-import Model.BackButton;
+import Model.Buttons.BackButton;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 public class OptionsView{

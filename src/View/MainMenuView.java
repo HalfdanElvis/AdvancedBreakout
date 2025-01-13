@@ -1,8 +1,9 @@
 package View;
-
-import Model.*;
+import Model.Buttons.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class MainMenuView{
     private Scene menuScene;
@@ -19,12 +20,17 @@ public class MainMenuView{
         highscoreButton = new HighscoreButton(highscoreButtonEvent);
         exitButton = new ExitButton();
 
+        Image image = new Image("\\Images\\MainMenuBackground.png");
+        ImageView bg = new ImageView(image);
+
         // Create the menu layout
         Group layout = new Group();
+        layout.getChildren().addAll(bg);
         layout.getChildren().add(startButton.getButton());
         layout.getChildren().add(optionsButton.getButton());
         layout.getChildren().add(highscoreButton.getButton());
         layout.getChildren().add(exitButton.getButton());
+       
 
         // Create and store the scene
         this.menuScene = new Scene(layout, width, height);

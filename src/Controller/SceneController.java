@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class SceneController extends Application{
     private static int sceneWidth = 800;
-    private static int sceneHeight = 600;
+    private static int sceneHeight = 800;
     private GameView gameView;
     private MainMenuView mainMenuView;
     private OptionsView optionsView;
@@ -61,6 +61,7 @@ public class SceneController extends Application{
         
 
         stage.setScene(mainMenuView.getScene());
+        stage.setResizable(false);
         stage.show();
 
     };

@@ -1,4 +1,4 @@
-package Model;
+package Model.Buttons;
 
 import Controller.SceneController;
 import javafx.scene.control.Button;
@@ -13,7 +13,7 @@ public class HighscoreButton {
 
     public HighscoreButton(Runnable buttonEvent) {
         buttonX = SceneController.getSceneWidth()/3;
-        buttonY = SceneController.getSceneHeight()-300;
+        buttonY = SceneController.getSceneHeight()-225;
         buttonWidth = SceneController.getSceneWidth()/3;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
         highscoreButton = new Button("Highscore");
