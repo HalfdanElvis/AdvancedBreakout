@@ -1,6 +1,6 @@
 package Model;
 
-import View.GameStart;
+import Controller.SceneController;
 import javafx.scene.control.Button;
 
 public class StartButton {
@@ -12,10 +12,10 @@ public class StartButton {
 
 
     public StartButton(Runnable buttonEvent) {
-        buttonX = GameStart.getSceneWidth()/3;
-        buttonY = GameStart.getSceneHeight()-200;
-        buttonWidth = GameStart.getSceneWidth()/3;
-        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        buttonX = SceneController.getSceneWidth()/3;
+        buttonY = SceneController.getSceneHeight()-200;
+        buttonWidth = SceneController.getSceneWidth()/3;
+        buttonHeight = SceneController.getSceneHeight()*0.75/9;
         startButton = new Button("Start Button");
         startButton.setPrefSize(buttonWidth, buttonHeight);
         startButton.setLayoutX(buttonX);

@@ -1,6 +1,6 @@
 package Model;
 
-import View.GameStart;
+import Controller.SceneController;
 import javafx.scene.control.Button;
 
 public class BackButton {
@@ -13,10 +13,10 @@ public class BackButton {
 
 
     public BackButton(Runnable buttonEvent) {
-        buttonX = GameStart.getSceneWidth()*1/9;
-        buttonY = GameStart.getSceneHeight()*8/9;
-        buttonWidth = GameStart.getSceneHeight()*3/9;
-        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        buttonX = SceneController.getSceneWidth()*1/9;
+        buttonY = SceneController.getSceneHeight()*8/9;
+        buttonWidth = SceneController.getSceneHeight()*3/9;
+        buttonHeight = SceneController.getSceneHeight()*0.75/9;
         backButton = new Button("Back Button");
         backButton.setPrefSize(buttonWidth, buttonHeight);
         backButton.setLayoutX(buttonX);
