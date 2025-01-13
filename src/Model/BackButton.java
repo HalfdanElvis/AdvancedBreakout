@@ -1,6 +1,6 @@
 package Model;
 
-import View.GameView;
+import View.GameStart;
 import javafx.scene.control.Button;
 
 public class BackButton {
@@ -12,10 +12,10 @@ public class BackButton {
 
 
     public BackButton() {
-        buttonX = GameView.getSceneWidth()*1/9;
-        buttonY = GameView.getSceneHeight()*8/9;
-        buttonWidth = GameView.getSceneHeight()*3/9;
-        buttonY = GameView.getSceneHeight()*0.75/9;
+        buttonX = GameStart.getSceneWidth()*1/9;
+        buttonY = GameStart.getSceneHeight()*8/9;
+        buttonWidth = GameStart.getSceneHeight()*3/9;
+        buttonY = GameStart.getSceneHeight()*0.75/9;
         Button exitButton = new Button("Back Graphic needed");
         exitButton.setPrefSize(buttonWidth, buttonHeight);
         exitButton.setLayoutX(buttonX);

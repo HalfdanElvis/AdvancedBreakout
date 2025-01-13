@@ -1,6 +1,6 @@
 package Model;
 
-import View.GameView;
+import View.GameStart;
 import javafx.scene.control.Button;
 
 public class OptionsButton {
@@ -12,10 +12,10 @@ public class OptionsButton {
 
 
     public OptionsButton() {
-        buttonX = GameView.getSceneWidth()/3;
-        buttonY = GameView.getSceneHeight()*8/9;
-        buttonWidth = GameView.getSceneWidth()/3;
-        buttonY = GameView.getSceneHeight()*0.75/9;
+        buttonX = GameStart.getSceneWidth()/3;
+        buttonY = GameStart.getSceneHeight()*8/9;
+        buttonWidth = GameStart.getSceneWidth()/3;
+        buttonY = GameStart.getSceneHeight()*0.75/9;
         Button optionsButton = new Button();
         optionsButton.setPrefSize(buttonWidth, buttonHeight);
         optionsButton.setLayoutX(buttonX);

@@ -2,7 +2,7 @@ package Controller;
 import java.util.ArrayList;
 
 import Model.*;
-import View.GameView;
+import View.GameStart;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.shape.Rectangle;
@@ -15,7 +15,7 @@ public class GameController {
     public static void startGameplay(Ball ball, ArrayList<Rectangle> blockList, Platform platform, Group group) {
         gameplay = new Timeline(new KeyFrame(Duration.millis(16), e -> {
             //Stops the game if a player loses
-            if (ball.getY() - ball.getRadius()*2 > GameView.getSceneHeight()){
+            if (ball.getY() - ball.getRadius()*2 > GameStart.getSceneHeight()){
                 gameplay.stop();
             }
             ball.updatePosition();

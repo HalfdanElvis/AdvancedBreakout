@@ -1,8 +1,7 @@
 package Model;
 
-import View.GameView;
+import View.GameStart;
 import javafx.scene.control.Button;
-import GameStart;
 
 public class StartButton {
     private double buttonX;
