@@ -2,13 +2,12 @@ package View;
 import Model.*;
 import Controller.*;
 import java.util.ArrayList;
-import javafx.application.Application;
+
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Group;
-import javafx.stage.Stage;
 
 public class GameView{
     private int rows = 6;

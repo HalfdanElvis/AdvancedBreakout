@@ -1,12 +1,8 @@
 package View;
 
-import java.lang.foreign.GroupLayout;
-
 import Model.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
 public class MainMenuView{
     private Scene menuScene;

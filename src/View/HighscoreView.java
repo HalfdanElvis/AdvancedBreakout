@@ -1,12 +1,9 @@
 package View;
 
 import Model.BackButton;
-import Model.StartButton;
+
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
 public class HighscoreView{
     private Scene highscoreScene;
