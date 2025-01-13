@@ -1,4 +1,4 @@
-/* css-lint-disable */
+/* stylelint-disable */
 .button {
     -fx-border-color:rgba(247, 247, 247, 0.6); 
     -fx-border-width: 2; 
@@ -16,4 +16,4 @@
     -fx-font-size: 24; 
     -fx-text-fill:rgb(241, 241, 241);
 }
-/* css-lint-enable */
+/* stylelint-enable */
