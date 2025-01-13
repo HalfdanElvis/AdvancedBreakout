@@ -14,7 +14,7 @@ public class OptionsButton {
 
     public OptionsButton(Runnable buttonEvent) {
         buttonX = SceneController.getSceneWidth()/3;
-        buttonY = SceneController.getSceneHeight()-150;
+        buttonY = SceneController.getSceneHeight()-175;
         buttonWidth = SceneController.getSceneWidth()/3;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
         optionsButton = new Button("Options");

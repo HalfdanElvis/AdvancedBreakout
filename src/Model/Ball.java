@@ -63,7 +63,7 @@ public class Ball {
     }
 
     public void randomizeAngle() {
-        this.angle = -120+(int)(Math.random()*60);
+        this.angle = (int)-120+(Math.random()*60);
     }
 
     public double getVelocity() {

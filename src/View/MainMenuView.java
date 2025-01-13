@@ -25,7 +25,7 @@ public class MainMenuView{
 
         // Create the menu layout
         Group layout = new Group();
-        layout.getChildren().addAll(bg);
+        layout.getChildren().add(bg);
         layout.getChildren().add(startButton.getButton());
         layout.getChildren().add(optionsButton.getButton());
         layout.getChildren().add(highscoreButton.getButton());

@@ -13,10 +13,10 @@ public class BackButton {
 
 
     public BackButton(Runnable buttonEvent) {
-        buttonX = SceneController.getSceneWidth()*1/9;
         buttonY = SceneController.getSceneHeight()*8/9;
         buttonWidth = SceneController.getSceneHeight()*3/9;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
+        buttonX = SceneController.getSceneHeight()-buttonY-buttonHeight;
         backButton = new Button("Back Button");
         backButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         backButton.setPrefSize(buttonWidth, buttonHeight);

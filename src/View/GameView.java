@@ -42,7 +42,6 @@ public class GameView{
     public void createDeathWindow(int sceneWidth, int sceneHeight, Runnable deathEvent) {
         Text deathMsg = new Text("You died. Try again?");
         deathMsg.setStyle("-fx-font-size: 36px; -fx-fill: white;");
-
         Button mainMenuButton = new Button("Main Menu");
         mainMenuButton.setPrefSize(SceneController.getSceneWidth()/3, SceneController.getSceneHeight()*0.75/9);
         mainMenuButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
@@ -50,7 +49,7 @@ public class GameView{
         ExitButton exitButton = new ExitButton();
         deathWindow = new VBox(deathMsg, mainMenuButton, exitButton.getButton());
         deathWindow.setPrefSize(sceneWidth, sceneHeight);
-        deathWindow.setStyle("-fx-background-color: rgba(0, 0, 0, 0.37);");
+        deathWindow.setStyle("-fx-background-color: rgba(0, 0, 0, 0.55);");
         deathWindow.setVisible(false);
         deathWindow.setAlignment(Pos.CENTER);
 

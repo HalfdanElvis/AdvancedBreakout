@@ -14,7 +14,7 @@ public class ExitButton {
 
     public ExitButton() {
         buttonX = SceneController.getSceneWidth()/3;
-        buttonY = SceneController.getSceneHeight()-75;
+        buttonY = SceneController.getSceneHeight()-100;
         buttonWidth = SceneController.getSceneWidth()/3;
         buttonHeight = SceneController.getSceneHeight()*0.75/9;
         exitButton = new Button("Exit");
