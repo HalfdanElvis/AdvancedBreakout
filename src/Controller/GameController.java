@@ -2,7 +2,6 @@ package Controller;
 import java.util.ArrayList;
 
 import Model.*;
-import View.GameView;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.util.Duration;
