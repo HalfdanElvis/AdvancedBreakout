@@ -3,7 +3,7 @@ package Model;
 import View.GameView;
 import javafx.scene.control.Button;
 
-public class ExitButton {
+public class OptionsButton {
     private double buttonX;
     private double buttonY;
     private double buttonWidth;
@@ -11,19 +11,19 @@ public class ExitButton {
     
 
 
-    public ExitButton() {
+    public OptionsButton() {
         buttonX = GameView.getSceneWidth()/3;
         buttonY = GameView.getSceneHeight()*8/9;
         buttonWidth = GameView.getSceneWidth()/3;
         buttonY = GameView.getSceneHeight()*0.75/9;
-        Button exitButton = new Button();
-        exitButton.setPrefSize(buttonWidth, buttonHeight);
-        exitButton.setLayoutX(buttonX);
-        exitButton.setLayoutY(buttonY);
+        Button optionsButton = new Button();
+        optionsButton.setPrefSize(buttonWidth, buttonHeight);
+        optionsButton.setLayoutX(buttonX);
+        optionsButton.setLayoutY(buttonY);
     }
 
     public void pressed() {
-        System.exit(0);
+        //GameStart.switchToOptions();
     }
 
 }
