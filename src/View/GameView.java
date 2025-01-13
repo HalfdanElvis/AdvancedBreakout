@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.Group;
 
 public class GameView{
     private int rows = 6;
     private int columns = 8;
+    private int level = 3;
     private Group group;
     private Scene gameScene;
 
@@ -21,8 +21,10 @@ public class GameView{
         group = new Group(platform.getRectangle(), ball.getCircle());
 
         
-        ArrayList<Rectangle> blockList = Model.GenerateBlocks.generateBlocks(rows, columns);
-        group.getChildren().addAll(blockList);
+        ArrayList<Block> blockList = Model.GenerateBlocks.generateBlocks(level,rows, columns);
+        for (int i = 0; i < blockList.size(); i++){
+            group.getChildren().add(blockList.get(i).getRectangle());
+        }
 
         gameScene = new Scene(group, sceneWidth, sceneHeight);
         gameScene.setFill(Color.BLACK);

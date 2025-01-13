@@ -12,7 +12,7 @@ public class GameController {
     static Timeline gameplay;
     static boolean gameRunning = false;
 
-    public static void startGameplay(Ball ball, ArrayList<Rectangle> blockList, Platform platform, Group group, Runnable deathEvent) {
+    public static void startGameplay(Ball ball, ArrayList<Block> blockList, Platform platform, Group group, Runnable deathEvent) {
         gameplay = new Timeline(new KeyFrame(Duration.millis(16), e -> {
             //Stops the game if a player loses
             if (ball.getY() - ball.getRadius()*2 > GameStart.getSceneHeight()){
