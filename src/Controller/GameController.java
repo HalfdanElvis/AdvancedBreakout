@@ -10,7 +10,7 @@ public class GameController {
     static Timeline gameplay;
     static boolean gameRunning = false;
 
-    public static void startGameplay(Ball ball, ArrayList<Block> blockList, Platform platform, Group group, Runnable deathEvent) {
+    public static void startGameplay(Ball ball, ArrayList<Block> blockList, Platform platform, Group group, Runnable deathEvent, Player player) {
         gameplay = new Timeline(new KeyFrame(Duration.millis(8), e -> {
             //Stops the game if a player loses
             if (ball.getY() - ball.getRadius()*2 > SceneController.getSceneHeight()){
@@ -21,7 +21,7 @@ public class GameController {
             ball.updatePosition();
             platform.updatePosition();
             CollisionManager.checkBorderCollision(ball);
-            CollisionManager.blockCollision(ball, blockList, group);
+            CollisionManager.blockCollision(ball, blockList, group, player);
             CollisionManager.collisionWithPlatform(ball, platform);
             ball.setVelocity(ball.getVelocity()+(ball.getVelocity()*0.0001));
     

@@ -3,12 +3,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Block {
+    private int score; 
+    private int[] scoreArray = {10, 15, 25, 40, 60, 100};
     private double hp;
     private Rectangle block;
 
     public Block(double hp, double x, double y, double width, double height) {
         this.hp = hp;
         block = new Rectangle(x, y, width, height);
+        this.score = 10;
     }
 
     public double getHp() {
@@ -58,4 +61,7 @@ public class Block {
     public void setColor(Color color) {
         this.block.setFill(color);
     }  
+    public int getScore(){
+        return score;
+    }
 }

@@ -50,7 +50,7 @@ public class CollisionManager {
         }
     }
 
-    public static void blockCollision(Ball ball, ArrayList<Block> blockList, Group group) {
+    public static void blockCollision(Ball ball, ArrayList<Block> blockList, Group group, Player player) {
         int hitTop = 0;
         int hitBottom = 0;
         int hitRight = 0;
@@ -74,6 +74,7 @@ public class CollisionManager {
                     hitLeft++;
                 }
                 if (block.getHp()-ball.getAttack() <= 0) {
+                    Score.scoreAdder(blockList.get(i), player);
                     blockList.remove(i);
                     group.getChildren().remove(block.getRectangle()); 
                     deathCount++;

@@ -31,12 +31,13 @@ public class GameView{
         // Adds the objects to the Scene, important before setupKeyEvents();
         gameView = new Scene(group, sceneWidth, sceneHeight);
         gameView.setFill(Color.BLACK);
-
+        //Adds player
+        Player player = new Player("Carl");
         setupKeyEvents();
         
         GameController.startGameplay(ball, blockList, platform, group, () -> {
             deathWindowShow();
-        });
+        }, player);
     }
 
     public void createDeathWindow(int sceneWidth, int sceneHeight, Runnable mainMenu, Runnable newGame) {
