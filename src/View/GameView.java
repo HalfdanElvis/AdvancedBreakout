@@ -1,37 +1,82 @@
 package View;
 import Model.*;
+import Model.Buttons.ExitButton;
 import Controller.*;
 import java.util.ArrayList;
-import javafx.application.Application;
+
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.stage.Stage;
 
 public class GameView{
     private int rows = 6;
     private int columns = 8;
+    private int level = 1;
     private Group group;
-    private Scene gameScene;
+    private Scene gameView;
+    private Platform platform;
+    private Ball ball;
+    private ArrayList<Block> blockList;
+    private VBox deathWindow;
 
-    public GameView (int sceneWidth, int sceneHeight){
-        Platform platform = new Platform();
-        Ball ball = new Ball(platform);
-        group = new Group(platform.getRectangle(), ball.getCircle());
+    public GameView (int sceneWidth, int sceneHeight, Runnable deathEvent){
+        createDeathWindow(sceneWidth, sceneHeight, deathEvent);
+        setupObjects();
+
+        // Adds the objects to the Scene, important before setupKeyEvents();
+        gameView = new Scene(group, sceneWidth, sceneHeight);
+        gameView.setFill(Color.BLACK);
+
+        setupKeyEvents();
+        
+        GameController.startGameplay(ball, blockList, platform, group, () -> {
+            deathWindowShow();
+        });
+    }
+
+    public void createDeathWindow(int sceneWidth, int sceneHeight, Runnable deathEvent) {
+        Text deathMsg = new Text("You died. Try again?");
+        deathMsg.setStyle("-fx-font-size: 36px; -fx-fill: white;");
+
+        Button mainMenuButton = new Button("Main Menu");
+        mainMenuButton.setPrefSize(SceneController.getSceneWidth()/3, SceneController.getSceneHeight()*0.75/9);
+        mainMenuButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
+        mainMenuButton.setOnAction(event -> deathEvent.run());
+
+        ExitButton exitButton = new ExitButton();
 
         
-        ArrayList<Rectangle> blockList = Model.GenerateBlocks.generateBlocks(rows, columns);
-        group.getChildren().addAll(blockList);
 
-        gameScene = new Scene(group, sceneWidth, sceneHeight);
-        gameScene.setFill(Color.BLACK);
+        deathWindow = new VBox(deathMsg, mainMenuButton, exitButton.getButton());
+        deathWindow.setPrefSize(sceneWidth, sceneHeight);
+        deathWindow.setStyle("-fx-background-color: rgba(0, 0, 0, 0.55);");
+        deathWindow.setVisible(false);
+        deathWindow.setAlignment(Pos.CENTER);
 
-        GameController.startGameplay(ball, blockList, platform, group);
+    }
 
-        // Set up keyevents for GameView
-        gameScene.setOnKeyPressed(event -> {
+    public void deathWindowShow() {
+        deathWindow.setVisible(true);
+    }
+
+    public void setupObjects() {
+        platform = new Platform();
+        ball = new Ball(platform);
+        group = new Group(platform.getRectangle(), ball.getCircle());
+        blockList = Model.GenerateBlocks.generateBlocks(level,rows, columns);
+        for (int i = 0; i < blockList.size(); i++){
+            group.getChildren().add(blockList.get(i).getRectangle());
+        }
+        group.getChildren().add(deathWindow);
+    }
+
+    public void setupKeyEvents() {
+        gameView.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.LEFT) {
                 GameController.leftPressed(platform);
             } else if (event.getCode() == KeyCode.RIGHT) {
@@ -41,7 +86,7 @@ public class GameView{
             }
         });
 
-        gameScene.setOnKeyReleased(event -> {
+        gameView.setOnKeyReleased(event -> {
             if (event.getCode() == KeyCode.LEFT) {
                 platform.setMovingLeft(false);
             } else if (event.getCode() == KeyCode.RIGHT) {
@@ -50,9 +95,9 @@ public class GameView{
         });
     }
 
-    public Scene getScene() {
-        return gameScene;
-    }
 
-    
+    public Scene getScene() {
+
+        return gameView;
+    }
 }

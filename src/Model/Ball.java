@@ -4,14 +4,17 @@ import javafx.scene.shape.Circle;
 
 
 public class Ball {
-    private double velocity = 7;
+    private double velocity = 3.5;
+    private double attack = 1;
+    private double currentPierce = 0;
+    private double maxPierce = 0;
     private Circle ball;
     private double angle;
     private boolean inPlatform;
 
     public Ball (Platform platform){
         ball = new Circle(platform.getX()+platform.getWidth()/2,platform.getY()-8, 8);
-        getCircle().setFill(Color.GOLDENROD);
+        getCircle().setFill(Color.SKYBLUE);
         randomizeAngle();
     }
 
@@ -60,7 +63,7 @@ public class Ball {
     }
 
     public void randomizeAngle() {
-        this.angle = -120+(int)(Math.random()*60);
+        this.angle = (int)-120+(Math.random()*60);
     }
 
     public double getVelocity() {
@@ -82,5 +85,29 @@ public class Ball {
 
     public void topBottomHit() {
         angle *= -1;
+    }
+
+    public double getAttack() {
+        return this.attack;
+    }
+
+    public void setAttack(double attack) {
+        this.attack = attack;
+    }
+
+    public double getCurrentPierce() {
+        return this.currentPierce;
+    }
+
+    public void setCurrentPierce(double piercing) {
+        this.currentPierce = piercing;
+    }
+
+    public double getMaxPierce() {
+        return maxPierce;
+    }
+
+    public void setMaxPierce(double maxPierce) {
+        this.maxPierce = maxPierce;
     }
 }
