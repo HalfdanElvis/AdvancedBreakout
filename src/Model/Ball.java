@@ -1,5 +1,7 @@
 package Model;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 
@@ -8,13 +10,15 @@ public class Ball {
     private double attack = 1;
     private double currentPierce = 0;
     private double maxPierce = 0;
+    private double radius = 20;
     private Circle ball;
     private double angle;
     private boolean inPlatform;
 
     public Ball (Platform platform){
-        ball = new Circle(platform.getX()+platform.getWidth()/2,platform.getY()-8, 8);
-        getCircle().setFill(Color.SKYBLUE);
+        ball = new Circle(platform.getX()+platform.getWidth()/2,platform.getY()-radius, radius);
+        Image ballIcon = new Image("\\Resources\\SlimeSprite.png");
+        getCircle().setFill(new ImagePattern(ballIcon));
         randomizeAngle();
     }
 

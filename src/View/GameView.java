@@ -6,8 +6,11 @@ import java.util.ArrayList;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.geometry.Pos;
@@ -23,7 +26,7 @@ public class GameView{
     private Ball ball;
     private ArrayList<Block> blockList;
     private VBox deathWindow;
-    
+
     public GameView (int sceneWidth, int sceneHeight, Runnable mainMenu, Runnable newGame){
         createDeathWindow(sceneWidth, sceneHeight, mainMenu, newGame);
         setupObjects();
@@ -46,7 +49,10 @@ public class GameView{
         Button mainMenuButton = new Button("Main Menu");
         mainMenuButton.setPrefSize(SceneController.getSceneWidth()/3, SceneController.getSceneHeight()*0.75/9);
         mainMenuButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
-        mainMenuButton.setOnAction(event -> mainMenu.run());
+        mainMenuButton.setOnAction(event -> {
+            mainMenu.run();
+            SceneController.getInstance().stopSong();
+        });
 
         ExitButton exitButton = new ExitButton();
 
@@ -64,12 +70,15 @@ public class GameView{
 
     public void deathWindowShow() {
         deathWindow.setVisible(true);
+        SceneController.getInstance().setSong(new Media (getClass().getResource("/Resources/deathSong.mp3").toExternalForm()));
     }
 
     public void setupObjects() {
+        Image image = new Image("\\Resources\\ForestLevel.png");
+        ImageView bg = new ImageView(image);
         platform = new Platform();
         ball = new Ball(platform);
-        group = new Group(platform.getRectangle(), ball.getCircle());
+        group = new Group(bg, platform.getRectangle(), ball.getCircle());
         blockList = Model.GenerateBlocks.generateBlocks(level,rows, columns);
         for (int i = 0; i < blockList.size(); i++){
             group.getChildren().add(blockList.get(i).getRectangle());
