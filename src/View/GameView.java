@@ -23,9 +23,9 @@ public class GameView{
     private Ball ball;
     private ArrayList<Block> blockList;
     private VBox deathWindow;
-
-    public GameView (int sceneWidth, int sceneHeight, Runnable deathEvent){
-        createDeathWindow(sceneWidth, sceneHeight, deathEvent);
+    
+    public GameView (int sceneWidth, int sceneHeight, Runnable mainMenu, Runnable newGame){
+        createDeathWindow(sceneWidth, sceneHeight, mainMenu, newGame);
         setupObjects();
 
         // Adds the objects to the Scene, important before setupKeyEvents();
@@ -39,20 +39,22 @@ public class GameView{
         });
     }
 
-    public void createDeathWindow(int sceneWidth, int sceneHeight, Runnable deathEvent) {
+    public void createDeathWindow(int sceneWidth, int sceneHeight, Runnable mainMenu, Runnable newGame) {
         Text deathMsg = new Text("You died. Try again?");
         deathMsg.setStyle("-fx-font-size: 36px; -fx-fill: white;");
 
         Button mainMenuButton = new Button("Main Menu");
         mainMenuButton.setPrefSize(SceneController.getSceneWidth()/3, SceneController.getSceneHeight()*0.75/9);
         mainMenuButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
-        mainMenuButton.setOnAction(event -> deathEvent.run());
+        mainMenuButton.setOnAction(event -> mainMenu.run());
 
         ExitButton exitButton = new ExitButton();
 
-        
-
-        deathWindow = new VBox(deathMsg, mainMenuButton, exitButton.getButton());
+        Button newGameButton = new Button("New Game");
+        newGameButton.setPrefSize(SceneController.getSceneWidth()/3, SceneController.getSceneHeight()*0.75/9);
+        newGameButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
+        newGameButton.setOnAction(event -> newGame.run());
+        deathWindow = new VBox(deathMsg, newGameButton, mainMenuButton, exitButton.getButton());
         deathWindow.setPrefSize(sceneWidth, sceneHeight);
         deathWindow.setStyle("-fx-background-color: rgba(0, 0, 0, 0.55);");
         deathWindow.setVisible(false);

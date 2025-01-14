@@ -1,8 +1,5 @@
 package Controller;
-import View.GameView;
-import View.HighscoreView;
-import View.MainMenuView;
-import View.OptionsView;
+import View.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -34,7 +31,6 @@ public class SceneController extends Application{
         this.stage = stage;
         stage.setTitle("BREAKOUT!");
 
-        createGameScene();
         createOptionsScene();
         createHighscoreScene();
         createMainMenuScene();
@@ -48,6 +44,9 @@ public class SceneController extends Application{
     public void createGameScene() {
         gameView = new GameView(sceneWidth, sceneHeight, () -> {
             stage.setScene(mainMenuView.getScene());
+        }, () -> {
+            createGameScene();
+            stage.setScene(gameView.getScene());
         });
     }
 
