@@ -3,11 +3,10 @@ package Model;
 import java.util.ArrayList;
 
 import Controller.SceneController;
-import javafx.scene.paint.Color;
 
 public class GenerateBlocks {
     public static ArrayList<Block> generateBlocks(int level, double rows, double columns) {
-        level = 10;
+        level = 1;
         rows += Math.floor(level/5.0);
         columns += Math.floor(level/5.0);
         ArrayList<Block> blockList = new ArrayList<>();
