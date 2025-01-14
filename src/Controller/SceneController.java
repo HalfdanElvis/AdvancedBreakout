@@ -21,15 +21,10 @@ public class SceneController extends Application{
     private MediaPlayer songPlayer;
     private Media mainMenuSong = new Media(getClass().getResource("/Resources/mainMenuSong.mp3").toExternalForm());
     private Media gameplaySong = new Media(getClass().getResource("/Resources/Judas.mp3").toExternalForm());
-    
-    public SceneController(){
-
-    }
 
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
-        System.out.println("Stage initialized: " + (stage != null));
 
         stage.setTitle("Sir Slime's Crazy Adventure");
         Image icon = new Image("\\Resources\\icon.png");
@@ -77,8 +72,6 @@ public class SceneController extends Application{
             createGameScene();
             stage.setScene(gameView.getScene());
         });
-        System.out.println("GameView initialized: " + this.gameView != null);
-        stage.setScene(gameView.getScene());
     }
 
     public void createOptionsScene() {
