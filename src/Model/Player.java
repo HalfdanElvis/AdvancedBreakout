@@ -75,4 +75,7 @@ public class Player {
     public void levelUp() {
         this.level++;
     }   
+    public String getName(){
+        return name;
+    }
 }

@@ -36,6 +36,7 @@ public class GameView{
         setupKeyEvents();
         
         GameController.startGameplay(ball, blockList, platform, group, () -> {
+            Score.writeHighScore(player);
             deathWindowShow();
         }, player);
     }
