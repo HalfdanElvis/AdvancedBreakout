@@ -27,8 +27,8 @@ public class MainMenuView{
         Group layout = new Group();
         layout.getChildren().add(bg);
         layout.getChildren().add(startButton.getButton());
-        layout.getChildren().add(optionsButton.getButton());
         layout.getChildren().add(highscoreButton.getButton());
+        layout.getChildren().add(optionsButton.getButton());
         layout.getChildren().add(exitButton.getButton());
        
 
