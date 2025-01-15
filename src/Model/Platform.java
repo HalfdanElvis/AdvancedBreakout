@@ -1,28 +1,22 @@
 package Model;
-import Controller.SceneController;
+
+import Main.GameStart;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Platform {
-    private double platformWidth;
-    private double platformHeight;
-    private double velocity;
-    private Rectangle platform;
+public class Platform extends Rectangle {
+    private static final double platformWidth = GameStart.getSceneWidth() / 4;
+    private static final double platformHeight = GameStart.getSceneHeight() / 30;
+    private static final double x = GameStart.getSceneWidth() / 2 - platformWidth / 2;
+    private static final double y = GameStart.getSceneHeight() * 0.8;
+
+    private double velocity = 4;
     private boolean isMovingLeft;
     private boolean isMovingRight;
 
-    public Platform(){
-        platformWidth = SceneController.getSceneWidth()/4;
-        platformHeight = SceneController.getSceneHeight()/30;
-        platform = new Rectangle(SceneController.getSceneWidth()/2-platformWidth/2, SceneController.getSceneHeight()*0.8, platformWidth, platformHeight); 
-        getRectangle().setFill(Color.GREEN);
-        isMovingLeft = false;
-        isMovingRight = false;
-        velocity = 4;
-    }
-
-    public Rectangle getRectangle() {
-        return this.platform;
+    public Platform() {
+        super(x, y, platformWidth, platformHeight);
+        setFill(Color.GREEN); 
     }
 
     public double getVelocity() {
@@ -48,51 +42,18 @@ public class Platform {
     public void setMovingRight(boolean bool) {
         this.isMovingRight = bool;
     }
-
-    public double getX() {
-        return this.platform.getX();
-    }
-
-    public void setX(double x) {
-        this.platform.setX(x);
-    }
-
-    public double getY() {
-        return this.platform.getY();
-    }
-
-    public void setY(double y) {
-        this.platform.setY(y);
-    }
-
-    public double getWidth() {
-        return this.platform.getWidth();
-    }
-
-    public void setWidth(double width) {
-        this.platform.setWidth(width);
-    }
-
-    public double getHeight() {
-        return this.platform.getHeight();
-    }
-
-    public void setHeight(double height) {
-        this.platform.setHeight(height);
-    }
-
+    
     public void updatePosition() {
         if (isMovingLeft()) {
-            setX(getX()-velocity);
+            setX(getX() - velocity);
         }
         if (isMovingRight()) {
-            setX(getX()+velocity);
+            setX(getX() + velocity);
         }
         if (getX() < 0) {
             setX(0);
-        }
-        else if (getX()+getWidth() > SceneController.getSceneWidth()) {
-            setX(SceneController.getSceneWidth()-getWidth());
+        } else if (getX() + getWidth() > GameStart.getSceneWidth()) {
+            setX(GameStart.getSceneWidth() - getWidth());
         }
     }
 }

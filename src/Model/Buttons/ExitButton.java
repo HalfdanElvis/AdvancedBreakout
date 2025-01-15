@@ -1,33 +1,31 @@
 package Model.Buttons;
 
-import Controller.SceneController;
+import Main.GameStart;
+import Main.SceneManager;
 import javafx.scene.control.Button;
 
-public class ExitButton {
+public class ExitButton extends Button{
     private double buttonX;
     private double buttonY;
     private double buttonWidth;
     private double buttonHeight;
-    private Button exitButton;
     
 
 
     public ExitButton() {
-        buttonX = SceneController.getSceneWidth()/3;
-        buttonY = SceneController.getSceneHeight()-100;
-        buttonWidth = SceneController.getSceneWidth()/3;
-        buttonHeight = SceneController.getSceneHeight()*0.75/9;
-        exitButton = new Button("Exit");
-        exitButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
-        exitButton.setPrefSize(buttonWidth, buttonHeight);
-        exitButton.setLayoutX(buttonX);
-        exitButton.setLayoutY(buttonY);
-        exitButton.setOnAction(event -> System.exit(0));
+        buttonX = GameStart.getSceneWidth()/3;
+        buttonY = GameStart.getSceneHeight()-100;
+        buttonWidth = GameStart.getSceneWidth()/3;
+        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        setText("Exit");
+        getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
+        setPrefSize(buttonWidth, buttonHeight);
+        setLayoutX(buttonX);
+        setLayoutY(buttonY);
+        setOnAction(event -> {
+            SceneManager.getInstance().playbuttonPressSFX();
+            System.exit(0);
+        });
     }
-
-    public Button getButton() {
-        return exitButton;
-    }
-    
 
 }

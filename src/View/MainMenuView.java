@@ -1,42 +1,29 @@
 package View;
+import Main.GameStart;
 import Model.Buttons.*;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
-public class MainMenuView{
-    private Scene menuScene;
+public class MainMenuView extends Pane{
     private OptionsButton optionsButton;
     private StartButton startButton;
     private HighscoreButton highscoreButton;
     private ExitButton exitButton;
 
-    public MainMenuView(int width, int height, Runnable startButtonEvent, Runnable optionsButtonEvent, Runnable highscoreButtonEvent) {
+    public MainMenuView() {
 
         // Create a buttons
-        startButton = new StartButton(startButtonEvent);
-        optionsButton = new OptionsButton(optionsButtonEvent);
-        highscoreButton = new HighscoreButton(highscoreButtonEvent);
+        startButton = new StartButton();
+        optionsButton = new OptionsButton();
+        highscoreButton = new HighscoreButton();
         exitButton = new ExitButton();
 
-        Image image = new Image("\\Resources\\MainMenuBackground.png");
+        Image image = new Image("/Resources/MainMenuBackground.png");
         ImageView bg = new ImageView(image);
+        bg.setFitWidth(GameStart.getSceneHeight());
+        bg.setFitHeight(GameStart.getSceneWidth());
 
-        // Create the menu layout
-        Group layout = new Group();
-        layout.getChildren().add(bg);
-        layout.getChildren().add(startButton.getButton());
-        layout.getChildren().add(highscoreButton.getButton());
-        layout.getChildren().add(optionsButton.getButton());
-        layout.getChildren().add(exitButton.getButton());
-       
-
-        // Create and store the scene
-        this.menuScene = new Scene(layout, width, height);
-    }
-
-    public Scene getScene() {
-        return menuScene;
+        getChildren().addAll(bg, startButton, highscoreButton, optionsButton, exitButton);
     }
 }

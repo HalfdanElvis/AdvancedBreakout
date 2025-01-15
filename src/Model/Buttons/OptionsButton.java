@@ -1,32 +1,30 @@
 package Model.Buttons;
 
-import Controller.SceneController;
+import Main.GameStart;
+import Main.SceneManager;
 import javafx.scene.control.Button;
 
-public class OptionsButton {
+public class OptionsButton extends Button{
     private double buttonX;
     private double buttonY;
     private double buttonWidth;
     private double buttonHeight;
-    private Button optionsButton;
-    
 
 
-    public OptionsButton(Runnable buttonEvent) {
-        buttonX = SceneController.getSceneWidth()/3;
-        buttonY = SceneController.getSceneHeight()-175;
-        buttonWidth = SceneController.getSceneWidth()/3;
-        buttonHeight = SceneController.getSceneHeight()*0.75/9;
-        optionsButton = new Button("Options");
-        optionsButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
-        optionsButton.setPrefSize(buttonWidth, buttonHeight);
-        optionsButton.setLayoutX(buttonX);
-        optionsButton.setLayoutY(buttonY);
-        optionsButton.setOnAction(event -> buttonEvent.run());
-    }
-
-    public Button getButton() {
-        return optionsButton;
+    public OptionsButton() {
+        buttonX = GameStart.getSceneWidth()/3;
+        buttonY = GameStart.getSceneHeight()-175;
+        buttonWidth = GameStart.getSceneWidth()/3;
+        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        setText("Options");
+        getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
+        setPrefSize(buttonWidth, buttonHeight);
+        setLayoutX(buttonX);
+        setLayoutY(buttonY);
+        setOnAction(event -> {
+            SceneManager.getInstance().playbuttonPressSFX();
+            SceneManager.getInstance().switchToOptionsView();
+        });
     }
 
 }

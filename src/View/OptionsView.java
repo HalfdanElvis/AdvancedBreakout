@@ -1,30 +1,21 @@
 package View;
 
+import Main.GameStart;
 import Model.Buttons.BackButton;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-public class OptionsView{
-    private Scene optionsScene;
+import javafx.scene.layout.Pane;
+public class OptionsView extends Pane{
 
-    public OptionsView(int width, int height, Runnable backButtonEvent) {
-        // Create a button to start the game
-        BackButton backButton = new BackButton(backButtonEvent);
-        Image image = new Image("\\Resources\\MainMenuBackground.png");
+    public OptionsView() {
+
+        BackButton backButton = new BackButton();
+
+        Image image = new Image("/Resources/MainMenuBackground.png");
         ImageView bg = new ImageView(image);
+        bg.setFitWidth(GameStart.getSceneHeight());
+        bg.setFitHeight(GameStart.getSceneWidth());
 
-
-        // Create the menu layout
-        Group layout = new Group();
-        layout.getChildren().add(bg);
-        layout.getChildren().add(backButton.getButton());
-
-        // Create and store the scene
-        this.optionsScene = new Scene(layout, width, height);
-    }
-
-    public Scene getScene() {
-        return optionsScene;
+        getChildren().addAll(bg, backButton);
     }
 }

@@ -1,32 +1,28 @@
 package Model.Buttons;
 
-import Controller.SceneController;
+import Main.*;
 import javafx.scene.control.Button;
 
-public class BackButton {
+public class BackButton extends Button{
     private double buttonX;
     private double buttonY;
     private double buttonWidth;
-    private double buttonHeight;
-    private Button backButton;
-    
+    private double buttonHeight;    
 
-
-    public BackButton(Runnable buttonEvent) {
-        buttonY = SceneController.getSceneHeight()*8/9;
-        buttonWidth = SceneController.getSceneHeight()*3/9;
-        buttonHeight = SceneController.getSceneHeight()*0.75/9;
-        buttonX = SceneController.getSceneHeight()-buttonY-buttonHeight;
-        backButton = new Button("Back Button");
-        backButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
-        backButton.setPrefSize(buttonWidth, buttonHeight);
-        backButton.setLayoutX(buttonX);
-        backButton.setLayoutY(buttonY);
-        backButton.setOnAction(event -> buttonEvent.run());
-    }
-
-    public Button getButton() {
-        return backButton;
+    public BackButton() {
+        buttonY = GameStart.getSceneHeight()*8/9;
+        buttonWidth = GameStart.getSceneHeight()*3/9;
+        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        buttonX = GameStart.getSceneHeight()-buttonY-buttonHeight;
+        setText("Back");
+        getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
+        setPrefSize(buttonWidth, buttonHeight);
+        setLayoutX(buttonX);
+        setLayoutY(buttonY);
+        setOnAction(event -> {
+            SceneManager.getInstance().playbuttonPressSFX();
+            SceneManager.getInstance().switchToMainMenuView();
+        });
     }
 
 }

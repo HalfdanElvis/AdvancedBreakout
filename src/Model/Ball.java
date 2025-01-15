@@ -1,24 +1,25 @@
 package Model;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 
-public class Ball {
+public class Ball extends Circle {
     private double velocity = 3.5;
     private double attack = 1;
     private double currentPierce = 0;
     private double maxPierce = 0;
     private double radius = 20;
-    private Circle ball;
     private double angle;
-    private boolean inPlatform;
+    private boolean inPlatform = false;
 
     public Ball (Platform platform){
-        ball = new Circle(platform.getX()+platform.getWidth()/2,platform.getY()-radius, radius);
+        super();
+        setX(platform.getX()+(platform.getWidth()/2));
+        setY(platform.getY()-radius);
+        setRadius(radius);
         Image ballIcon = new Image("\\Resources\\SlimeSprite.png");
-        getCircle().setFill(new ImagePattern(ballIcon));
+        setFill(new ImagePattern(ballIcon));
         randomizeAngle();
     }
 
@@ -30,32 +31,20 @@ public class Ball {
         this.inPlatform = inPlatform;
     }
 
-    public Circle getCircle() {
-        return ball;
-    }
-
     public double getX() {
-        return this.ball.getCenterX();
+        return getCenterX();
     }
 
     public void setX(double x) {
-        this.ball.setCenterX(x);
+        setCenterX(x);
     }
 
     public double getY() {
-        return this.ball.getCenterY();
+        return getCenterY();
     }
 
     public void setY(double y) {
-        this.ball.setCenterY(y);
-    }
-
-    public double getRadius() {
-        return this.ball.getRadius();
-    }
-
-    public void setRadius(double radius) {
-        this.ball.setRadius(radius);
+        setCenterY(y);
     }
 
     public double getAngle() {
