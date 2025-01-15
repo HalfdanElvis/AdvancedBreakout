@@ -7,9 +7,9 @@ public class Platform extends Rectangle {
     private static final double platformWidth = OptionsModel.getSceneWidth() / 4;
     private static final double platformHeight = OptionsModel.getSceneHeight() / 30;
     private static final double x = OptionsModel.getSceneWidth() / 2 - platformWidth / 2;
-    private static final double y = OptionsModel.getSceneHeight() * 0.8;
+    private static final double y = OptionsModel.getSceneHeight() * 0.9;
 
-    private double velocity = 4;
+    private double velocity = OptionsModel.getSceneHeight()*0.003+OptionsModel.getSceneWidth()*0.003 ;    ;
     private boolean isMovingLeft;
     private boolean isMovingRight;
 

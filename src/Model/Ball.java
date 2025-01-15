@@ -5,7 +5,7 @@ import javafx.scene.shape.Circle;
 
 
 public class Ball extends Circle {
-    private double velocity = 3.5;
+    private double velocity = OptionsModel.getSceneHeight()*0.002+OptionsModel.getSceneWidth()*0.002;
     private double attack = 1;
     private double currentPierce = 0;
     private double maxPierce = 0;
