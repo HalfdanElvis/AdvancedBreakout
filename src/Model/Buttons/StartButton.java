@@ -15,7 +15,7 @@ public class StartButton extends Button{
 
     public StartButton() {
         buttonX = OptionsModel.getSceneWidth()/3;
-        buttonY = OptionsModel.getSceneHeight()*0.5;
+        buttonY = OptionsModel.getSceneHeight()*0.55;
         buttonWidth = OptionsModel.getSceneWidth()/3;
         buttonHeight = OptionsModel.getSceneHeight()*0.75/9;
         setText("Start");
