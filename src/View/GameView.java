@@ -1,7 +1,6 @@
 package View;
 import Model.*;
-import Model.Buttons.ExitButton;
-import Main.GameStart;
+import Model.Buttons.*;
 import Main.SceneManager;
 
 import java.util.ArrayList;
@@ -20,8 +19,8 @@ public class GameView extends Pane{
     private Ball ball;
     private ArrayList<Block> blockList;
     private VBox deathScreen;
-    private int sceneWidth = GameStart.getSceneWidth();
-    private int sceneHeight = GameStart.getSceneHeight();
+    private double sceneWidth = OptionsModel.getSceneWidth();
+    private double sceneHeight = OptionsModel.getSceneHeight();
 
 
     private int rows = 6;
@@ -36,19 +35,19 @@ public class GameView extends Pane{
         setupObjects(sceneWidth, sceneHeight);
     }
 
-    public void initializeDeathScreen(int sceneWidth, int sceneHeight) {
+    public void initializeDeathScreen(double sceneWidth, double sceneHeight) {
         Text deathMsg = new Text("You died. Try again?");
         deathMsg.setStyle("-fx-font-size: 36px; -fx-fill: white;");
 
         Button mainMenuButton = new Button("Main Menu");
-        mainMenuButton.setPrefSize(GameStart.getSceneWidth()/3, GameStart.getSceneHeight()*0.75/9);
+        mainMenuButton.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()*0.75/9);
         mainMenuButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         mainMenuButton.setOnAction(event -> SceneManager.getInstance().switchToMainMenuView());
 
         ExitButton exitButton = new ExitButton();
 
         Button newGameButton = new Button("New Game");
-        newGameButton.setPrefSize(GameStart.getSceneWidth()/3, GameStart.getSceneHeight()*0.75/9);
+        newGameButton.setPrefSize(OptionsModel.getSceneWidth()/3, OptionsModel.getSceneHeight()*0.75/9);
         newGameButton.getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         newGameButton.setOnAction(event -> SceneManager.getInstance().switchToGameView());
 
@@ -64,7 +63,7 @@ public class GameView extends Pane{
         SceneManager.getInstance().playMusic("/Resources/deathSong.mp3");
     }
 
-    public void setupObjects(int sceneWidth, int sceneHeight) {
+    public void setupObjects(double sceneWidth, double sceneHeight) {
         //Background
         Image image = new Image("/Resources/ForestLevel.png");
         ImageView bg = new ImageView(image);

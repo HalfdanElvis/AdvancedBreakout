@@ -2,8 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 
-import Main.GameStart;
-import javafx.scene.paint.Color;
+
 
 public class GenerateBlocks {
     public static ArrayList<Block> generateBlocks(int level, double rows, double columns) {
@@ -11,9 +10,15 @@ public class GenerateBlocks {
         rows += Math.floor(level/5.0);
         columns += Math.floor(level/5.0);
         ArrayList<Block> blockList = new ArrayList<>();
-        double space = GameStart.getSceneWidth()/Math.sqrt(columns)/Math.sqrt(rows)/40;
-        double blockWidth = GameStart.getSceneWidth()/columns-space;;
-        double blockHeight = GameStart.getSceneHeight()/3/rows-space;
+        double space = Model.OptionsModel.getSceneWidth()/Math.sqrt(columns)/Math.sqrt(rows)/40;
+        double blockWidth = Model.OptionsModel.getSceneWidth()/columns-space;
+        double blockHeight = Model.OptionsModel.getSceneHeight()/3/rows-space;
+
+        double[][] probabilities = new double[(int) rows][Block.getMaxTier()];
+        for (int i = 0; i < probabilities.length; i++) {
+            probabilities[probabilities.length-1-i] = generateProbabilities(level, Math.floor(level/3)-4+i/rows*8, 0.9);
+        }
+        //generates blocks randomly based on current level
         for (double i = 0; i < columns; i++) {
             for (double j = 0; j < rows; j++) {
                 if (Math.random() > Math.exp(-Math.pow(j, 2)/150/Math.pow(level, 0.25)*10/rows)) {

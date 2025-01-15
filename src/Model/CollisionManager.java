@@ -2,7 +2,6 @@ package Model;
 
 import java.util.ArrayList;
 
-import Main.GameStart;
 import Main.SceneManager;
 import View.GameView;
 
@@ -173,13 +172,13 @@ public class CollisionManager {
             ball.sideHit();
             ball.setX(ball.getRadius());
         }
-        else if ((ball.getX() + ball.getRadius() >= GameStart.getSceneWidth())) {
+        else if ((ball.getX() + ball.getRadius() >= OptionsModel.getSceneWidth())) {
             
             // Plays sfx
             SceneManager.getInstance().playHitSFX();
 
             ball.sideHit();
-            ball.setX(GameStart.getSceneWidth()-ball.getRadius());
+            ball.setX(OptionsModel.getSceneWidth()-ball.getRadius());
         }
 
         if ((ball.getY() - ball.getRadius() <= 0)) {

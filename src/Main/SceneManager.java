@@ -7,6 +7,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import View.*;
 import Controller.*;
+import Model.OptionsModel;
 
 public class SceneManager {
 
@@ -51,7 +52,7 @@ public class SceneManager {
     // Switch to GameView
     public void switchToGameView() {
         gameView = new GameView();
-        currentScene = new Scene(gameView, GameStart.getSceneWidth(), GameStart.getSceneHeight());
+        currentScene = new Scene(gameView, OptionsModel.getSceneWidth(), OptionsModel.getSceneHeight());
         gameController = new GameController(gameView, currentScene);  
         playMusic("/Resources/Judas.mp3");
         stage.setScene(currentScene);
@@ -61,7 +62,7 @@ public class SceneManager {
     // Switch to MainMenuView
     public void switchToMainMenuView() {
         mainMenuView = new MainMenuView();
-        currentScene = new Scene(mainMenuView, GameStart.getSceneWidth(), GameStart.getSceneHeight());
+        currentScene = new Scene(mainMenuView, OptionsModel.getSceneWidth(), OptionsModel.getSceneHeight());
         playMusic("/Resources/mainMenuSong.mp3");
         stage.setScene(currentScene);
         stage.show();
@@ -70,7 +71,7 @@ public class SceneManager {
     // Switch to OptionsView
     public void switchToOptionsView() {
         optionsView = new OptionsView();
-        currentScene = new Scene(optionsView, GameStart.getSceneWidth(), GameStart.getSceneHeight());
+        currentScene = new Scene(optionsView, OptionsModel.getSceneWidth(), OptionsModel.getSceneHeight());
         stage.setScene(currentScene);
         stage.show();
     }
@@ -78,7 +79,7 @@ public class SceneManager {
     // Switch to PauseView
     public void switchToPauseView() {
         pauseView = new PauseView();
-        currentScene = new Scene(pauseView, GameStart.getSceneWidth(), GameStart.getSceneHeight());
+        currentScene = new Scene(pauseView, OptionsModel.getSceneWidth(), OptionsModel.getSceneHeight());
         stage.setScene(currentScene);
         stage.show();
     }
@@ -86,7 +87,7 @@ public class SceneManager {
     // Switch to HighscoreView
     public void switchToHighscoreView() {
         highscoreView = new HighscoreView();
-        currentScene = new Scene(highscoreView, GameStart.getSceneWidth(), GameStart.getSceneHeight());
+        currentScene = new Scene(highscoreView, OptionsModel.getSceneWidth(), OptionsModel.getSceneHeight());
         stage.setScene(currentScene);
         stage.show();
     }

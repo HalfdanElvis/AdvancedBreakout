@@ -1,14 +1,13 @@
 package Model;
 
-import Main.GameStart;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Platform extends Rectangle {
-    private static final double platformWidth = GameStart.getSceneWidth() / 4;
-    private static final double platformHeight = GameStart.getSceneHeight() / 30;
-    private static final double x = GameStart.getSceneWidth() / 2 - platformWidth / 2;
-    private static final double y = GameStart.getSceneHeight() * 0.8;
+    private static final double platformWidth = OptionsModel.getSceneWidth() / 4;
+    private static final double platformHeight = OptionsModel.getSceneHeight() / 30;
+    private static final double x = OptionsModel.getSceneWidth() / 2 - platformWidth / 2;
+    private static final double y = OptionsModel.getSceneHeight() * 0.8;
 
     private double velocity = 4;
     private boolean isMovingLeft;
@@ -52,8 +51,8 @@ public class Platform extends Rectangle {
         }
         if (getX() < 0) {
             setX(0);
-        } else if (getX() + getWidth() > GameStart.getSceneWidth()) {
-            setX(GameStart.getSceneWidth() - getWidth());
+        } else if (getX() + getWidth() > OptionsModel.getSceneWidth()) {
+            setX(OptionsModel.getSceneWidth() - getWidth());
         }
     }
 }

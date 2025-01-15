@@ -1,6 +1,6 @@
 package Model.Buttons;
 
-import Main.GameStart;
+import Model.OptionsModel;
 import Main.SceneManager;
 import javafx.scene.control.Button;
 
@@ -13,10 +13,10 @@ public class ExitButton extends Button{
 
 
     public ExitButton() {
-        buttonX = GameStart.getSceneWidth()/3;
-        buttonY = GameStart.getSceneHeight()-100;
-        buttonWidth = GameStart.getSceneWidth()/3;
-        buttonHeight = GameStart.getSceneHeight()*0.75/9;
+        buttonX = OptionsModel.getSceneWidth()/3;
+        buttonY = OptionsModel.getSceneHeight()-100;
+        buttonWidth = OptionsModel.getSceneWidth()/3;
+        buttonHeight = OptionsModel.getSceneHeight()*0.75/9;
         setText("Exit");
         getStylesheets().add(getClass().getResource("/Resources/styles.css").toExternalForm());
         setPrefSize(buttonWidth, buttonHeight);

@@ -1,6 +1,5 @@
 package Controller;
 
-import Main.GameStart;
 import Model.*;
 import View.*;
 import javafx.animation.Timeline;
@@ -33,7 +32,7 @@ public class GameController {
         Ball ball = gameView.getBall();
 
         // checks for death
-        if (ball.getY() - ball.getRadius()*2 > GameStart.getSceneHeight()){
+        if (ball.getY() - ball.getRadius()*2 > OptionsModel.getSceneHeight()){
             gameplay.stop();
             gameRunning = false;
             gameView.deathScreenShow();
