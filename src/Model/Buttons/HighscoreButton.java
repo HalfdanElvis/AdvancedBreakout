@@ -13,7 +13,7 @@ public class HighscoreButton extends Button{
 
     public HighscoreButton() {
         buttonX = OptionsModel.getSceneWidth()/3;
-        buttonY = OptionsModel.getSceneHeight()-250;
+        buttonY = OptionsModel.getSceneHeight()*0.7;
         buttonWidth = OptionsModel.getSceneWidth()/3;
         buttonHeight = OptionsModel.getSceneHeight()*0.75/9;
         setText("Highscore");

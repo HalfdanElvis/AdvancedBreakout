@@ -7,12 +7,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+
+import javafx.stage.Screen;
+
 import java.io.FileReader;
 
 public class OptionsModel {
-    private static double scale = java.awt.Toolkit.getDefaultToolkit().getScreenResolution()/96.0;
-    private static double sceneWidth = 800/scale;
-    private static double sceneHeight = 800/scale;
+    private static double sceneWidth = Screen.getPrimary().getBounds().getWidth();
+    private static double sceneHeight = Screen.getPrimary().getBounds().getHeight();
     private static double musicVolume = 1;
     private static double SoundVolume = 1;
 
@@ -20,9 +22,6 @@ public class OptionsModel {
 
     }
 
-    public static double getScale() {
-        return scale;
-    }
     public static double getSceneWidth() {
         return sceneWidth;
     }

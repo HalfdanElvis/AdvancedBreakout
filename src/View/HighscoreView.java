@@ -14,8 +14,8 @@ public class HighscoreView extends Pane{
 
         Image image = new Image("/Resources/MainMenuBackground.png");
         ImageView bg = new ImageView(image);
-        bg.setFitWidth(OptionsModel.getSceneHeight());
-        bg.setFitHeight(OptionsModel.getSceneWidth());
+        bg.setFitWidth(OptionsModel.getSceneWidth());
+        bg.setFitHeight(OptionsModel.getSceneHeight());
 
         getChildren().addAll(bg, backButton);
     }

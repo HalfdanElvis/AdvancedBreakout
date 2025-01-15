@@ -13,7 +13,7 @@ public class OptionsButton extends Button{
 
     public OptionsButton() {
         buttonX = OptionsModel.getSceneWidth()/3;
-        buttonY = OptionsModel.getSceneHeight()-175;
+        buttonY = OptionsModel.getSceneHeight()*0.8;
         buttonWidth = OptionsModel.getSceneWidth()/3;
         buttonHeight = OptionsModel.getSceneHeight()*0.75/9;
         setText("Options");

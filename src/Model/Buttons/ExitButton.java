@@ -14,7 +14,7 @@ public class ExitButton extends Button{
 
     public ExitButton() {
         buttonX = OptionsModel.getSceneWidth()/3;
-        buttonY = OptionsModel.getSceneHeight()-100;
+        buttonY = OptionsModel.getSceneHeight()*0.9;
         buttonWidth = OptionsModel.getSceneWidth()/3;
         buttonHeight = OptionsModel.getSceneHeight()*0.75/9;
         setText("Exit");
