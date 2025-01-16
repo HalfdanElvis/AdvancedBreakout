@@ -8,6 +8,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
 public class OptionsView extends Pane{
     static Slider musicSlider = new Slider(0, 1, OptionsModel.getMusicVolume());
     static Slider soundSlider = new Slider(0, 1, OptionsModel.getSoundVolume());
