@@ -103,9 +103,9 @@ public class GameController {
 
     public void setupControls() {
         scene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.LEFT) {
+            if (event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A) {
                 leftPressed();
-            } else if (event.getCode() == KeyCode.RIGHT) {
+            } else if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.D) {
                 rightPressed();
             } else if (event.getCode() == KeyCode.SPACE) {
                 spacePressed();
@@ -113,9 +113,9 @@ public class GameController {
         });
 
         scene.setOnKeyReleased(event -> {
-            if (event.getCode() == KeyCode.LEFT) {
+            if (event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A) {
                 leftReleased();
-            } else if (event.getCode() == KeyCode.RIGHT) {
+            } else if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.D) {
                 rightReleased();
             }
         });
