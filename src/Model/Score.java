@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 
 public class Score {
     static String[] arrayHighScore;
+    
     public static void scoreAdder(Block block, Player player){
         player.updateCurrentScore(block.getScore());
     }

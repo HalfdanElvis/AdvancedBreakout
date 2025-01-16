@@ -46,6 +46,7 @@ public class CollisionManager {
                     ball.setCurrentPierce(ball.getCurrentPierce()-1);
                 } else {
                     blockList.get(i).looseHp(ball.getAttack());
+                    blockList.get(i).updateOpacity();
                     ball.setCurrentPierce(0);
                 }
             }

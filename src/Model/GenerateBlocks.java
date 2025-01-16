@@ -2,12 +2,14 @@ package Model;
 
 import java.util.ArrayList;
 
+import javafx.scene.paint.Color;
+
 
 
 public class GenerateBlocks {
     public static ArrayList<Block> generateBlocks(int level) {
-        double rows = 2+Math.floor(level/5.0);
-        double columns = 2+Math.floor(level/5.0);
+        double rows = 4+Math.floor(level/5.0);
+        double columns = 5+Math.floor(level/5.0);
         ArrayList<Block> blockList = new ArrayList<>();
         double space = Model.OptionsModel.getSceneWidth()/Math.sqrt(columns)/Math.sqrt(rows)/40;
         double blockWidth = Model.OptionsModel.getSceneWidth()/columns-space;
@@ -15,7 +17,7 @@ public class GenerateBlocks {
 
         double[][] probabilities = new double[(int) rows][Block.getMaxTier()];
         for (int i = 0; i < probabilities.length; i++) {
-            probabilities[probabilities.length-1-i] = generateProbabilities(level, Math.floor(level/3)-4+i/rows*8, 0.9);
+            probabilities[probabilities.length-1-i] = generateProbabilities(level, Math.floor(level/4)-4+i/rows*8, 0.9);
         }
         //generates blocks randomly based on current level
         for (double i = 0; i < columns; i++) {
