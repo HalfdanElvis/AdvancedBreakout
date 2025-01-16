@@ -1,5 +1,7 @@
 package Model;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 public class Block extends Rectangle {
@@ -14,6 +16,8 @@ public class Block extends Rectangle {
         this.hp = (long) (hpArray[tier] * Math.ceil(level/3.0));
         this.score = (long) (scoreArray[tier] * Math.ceil(level/3.0));
         this.setFill(colorArray[tier]);
+        Image blockFace = new Image("/Resources/blockFace.png");
+        this.setFill(new ImagePattern(blockFace));
     }
 
     public double getHp() {

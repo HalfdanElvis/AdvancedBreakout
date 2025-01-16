@@ -5,6 +5,7 @@ import Model.Buttons.BackButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
 public class OptionsView extends Pane{
 
     public OptionsView() {
