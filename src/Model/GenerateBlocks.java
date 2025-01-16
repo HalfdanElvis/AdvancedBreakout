@@ -17,7 +17,7 @@ public class GenerateBlocks {
 
         double[][] probabilities = new double[(int) rows][Block.getMaxTier()];
         for (int i = 0; i < probabilities.length; i++) {
-            probabilities[probabilities.length-1-i] = generateProbabilities(level, Math.floor(level/4)-4+i/rows*8, 0.9);
+            probabilities[probabilities.length-1-i] = generateProbabilities(level, Math.sqrt(level/5)-5+i/rows*10, 0.9);
         }
         //generates blocks randomly based on current level
         for (double i = 0; i < columns; i++) {

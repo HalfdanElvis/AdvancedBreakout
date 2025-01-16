@@ -6,7 +6,7 @@ import javafx.scene.shape.Circle;
 
 public class Ball extends Circle {
     private double ogVelocity = 3.5;
-    private double velocity = 3.5;
+    private double velocity = ogVelocity;
     private double attack = 1;
     private double maxPierce = 0;
     private double currentPierce = maxPierce;
