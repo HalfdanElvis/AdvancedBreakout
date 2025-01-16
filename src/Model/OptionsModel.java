@@ -78,4 +78,12 @@ public class OptionsModel {
     public static double getSoundVolume() {
         return optionsMap.get("SoundVolume");
     }
+
+    public static void setMusicVolume(double volume) {
+        optionsMap.put("MusicVolume", volume);
+    }
+
+    public static void setSoundVolume(double volume) {
+        optionsMap.put("SoundVolume", volume);
+    }
 }

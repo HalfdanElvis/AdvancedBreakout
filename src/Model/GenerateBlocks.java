@@ -5,10 +5,9 @@ import java.util.ArrayList;
 
 
 public class GenerateBlocks {
-    public static ArrayList<Block> generateBlocks(int level, double rows, double columns) {
-        level = 1;
-        rows += Math.floor(level/5.0);
-        columns += Math.floor(level/5.0);
+    public static ArrayList<Block> generateBlocks(int level) {
+        double rows = 2+Math.floor(level/5.0);
+        double columns = 2+Math.floor(level/5.0);
         ArrayList<Block> blockList = new ArrayList<>();
         double space = Model.OptionsModel.getSceneWidth()/Math.sqrt(columns)/Math.sqrt(rows)/40;
         double blockWidth = Model.OptionsModel.getSceneWidth()/columns-space;
@@ -25,7 +24,7 @@ public class GenerateBlocks {
                     continue;
                 }
                 int tier = chooseTier(probabilities[(int) j], level-1);
-                Block block = new Block(tier, level, (blockWidth+space)*i+space/2, (blockHeight+space)*j+space/2+blockHeight*3, blockWidth, blockHeight);
+                Block block = new Block(tier, level, (blockWidth+space)*i+space/2, (blockHeight+space)*j+space/2+OptionsModel.getSceneHeight()/6, blockWidth, blockHeight);
                 blockList.add(block);
             }
         }

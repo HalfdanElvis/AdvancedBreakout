@@ -5,19 +5,17 @@ import javafx.scene.shape.Circle;
 
 
 public class Ball extends Circle {
-    private double velocity = OptionsModel.getSceneHeight()*0.002+OptionsModel.getSceneWidth()*0.002;
+    private double ogVelocity = 3.5;
+    private double velocity = 3.5;
     private double attack = 1;
-    private double currentPierce = 0;
     private double maxPierce = 0;
-    private double radius = 20;
+    private double currentPierce = maxPierce;
     private double angle;
     private boolean inPlatform = false;
+    private static double defaultRadius = 20;
 
     public Ball (Platform platform){
-        super();
-        setX(platform.getX()+(platform.getWidth()/2));
-        setY(platform.getY()-radius);
-        setRadius(radius);
+        super(platform.getX()+platform.getWidth()/2, platform.getY()-defaultRadius, defaultRadius);
         Image ballIcon = new Image("\\Resources\\SlimeSprite.png");
         setFill(new ImagePattern(ballIcon));
         randomizeAngle();
@@ -25,6 +23,10 @@ public class Ball extends Circle {
 
     public boolean isInPlatform() {
         return inPlatform;
+    }
+
+    public void addOGVelocity(double n) {
+        this.ogVelocity += n;
     }
 
     public void setInPlatform(boolean inPlatform) {
@@ -47,6 +49,10 @@ public class Ball extends Circle {
         setCenterY(y);
     }
 
+    public void addRadius(double n) {
+        this.setRadius(this.getRadius()+n);
+    }
+
     public double getAngle() {
         return angle;
     }
@@ -67,6 +73,10 @@ public class Ball extends Circle {
         this.velocity = velocity;
     }
 
+    public void addVelocity(double velocity) {
+        this.velocity += velocity;
+    }
+
     public void updatePosition() {
         setX(getX() + this.velocity*Math.cos(this.angle*Math.PI/180));
         setY(getY() + this.velocity*Math.sin(this.angle*Math.PI/180));
@@ -84,8 +94,8 @@ public class Ball extends Circle {
         return this.attack;
     }
 
-    public void setAttack(double attack) {
-        this.attack = attack;
+    public void addAttack(double attack) {
+        this.attack += attack;
     }
 
     public double getCurrentPierce() {
@@ -100,7 +110,16 @@ public class Ball extends Circle {
         return maxPierce;
     }
 
-    public void setMaxPierce(double maxPierce) {
-        this.maxPierce = maxPierce;
+    public void addMaxPierce(double maxPierce) {
+        this.maxPierce += maxPierce;
+        this.currentPierce = maxPierce;
+    }
+
+    public void reset(Platform platform) {
+        setX(platform.getX()+(platform.getWidth()/2));
+        setY(platform.getY()-getRadius());
+        setVelocity(ogVelocity);
+        this.currentPierce = maxPierce;
+        randomizeAngle();
     }
 }

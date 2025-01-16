@@ -7,6 +7,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import View.*;
 
+import java.io.IOException;
 import java.lang.classfile.ClassFile.Option;
 
 import Controller.*;
@@ -64,11 +65,17 @@ public class SceneManager {
 
     // Switch to MainMenuView
     public void switchToMainMenuView() {
+        updateVolume();
         mainMenuView = new MainMenuView();
         currentScene = new Scene(mainMenuView, OptionsModel.getSceneWidth(), OptionsModel.getSceneHeight());
         playMusic("/Resources/mainMenuSong.mp3");
         stage.setScene(currentScene);
         stage.show();
+    }
+
+    public void levelUp() {
+        gameView.newLevel();
+        gameController.setGameRunning(false);
     }
 
     // Switch to OptionsView
@@ -120,7 +127,17 @@ public class SceneManager {
     }
 
     public void updateVolume() {
-        musicPlayer.setVolume(OptionsModel.getMusicVolume());
+        OptionsModel.setMusicVolume(OptionsView.getMusicVolume());
+        OptionsModel.setSoundVolume(OptionsView.getSoundVolume());
+        if (musicPlayer != null){
+            musicPlayer.setVolume(OptionsModel.getMusicVolume());
+        }
+        try {
+            OptionsModel.updateOptions();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         hit.setVolume(OptionsModel.getSoundVolume());
         blockBreak.setVolume(OptionsModel.getSoundVolume());
         buttonPress.setVolume(OptionsModel.getSoundVolume());

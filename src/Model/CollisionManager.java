@@ -39,6 +39,7 @@ public class CollisionManager {
                     // Play sfx
                     SceneManager.getInstance().playBlockBreakSFX();
 
+                    Score.scoreAdder(blockList.get(i), gameView.getplayer());
                     blockList.remove(i);
                     gameView.getChildren().remove(block); 
                     deathCount++;
@@ -163,7 +164,7 @@ public class CollisionManager {
         }
     }
 
-    public static void checkBorderCollision (Ball ball) {
+    public static void checkBorderCollision (Ball ball, GameView gameView) {
         if ((ball.getX() - ball.getRadius() <= 0)) {
             
             // Plays sfx
@@ -181,13 +182,13 @@ public class CollisionManager {
             ball.setX(OptionsModel.getSceneWidth()-ball.getRadius());
         }
 
-        if ((ball.getY() - ball.getRadius() <= 0)) {
+        if ((ball.getY() - ball.getRadius()) <= gameView.getHudHeight()) {
 
             // Plays sfx
             SceneManager.getInstance().playHitSFX();
 
             ball.topBottomHit();
-            ball.setY(ball.getRadius());
+            ball.setY(ball.getRadius()+gameView.getHudHeight());
         }
     }
 }

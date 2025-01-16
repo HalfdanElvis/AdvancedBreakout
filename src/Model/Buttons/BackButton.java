@@ -2,6 +2,7 @@ package Model.Buttons;
 
 import Main.SceneManager;
 import Model.OptionsModel;
+import View.OptionsView;
 import javafx.scene.control.Button;
 
 public class BackButton extends Button{
@@ -23,6 +24,7 @@ public class BackButton extends Button{
         setOnAction(event -> {
             SceneManager.getInstance().playbuttonPressSFX();
             SceneManager.getInstance().switchToMainMenuView();
+            
         });
     }
 
