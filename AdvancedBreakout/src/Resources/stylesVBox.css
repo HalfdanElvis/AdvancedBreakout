@@ -1,0 +1,11 @@
+.vbox {
+    -fx-background-color: linear-gradient(to bottom, #944545, #581212); /* Subtle gradient background */
+    -fx-border-color: #4a90e2; /* Blue border */
+    -fx-border-width: 2; /* Border thickness */
+    /*-fx-border-radius: 10; /* Rounded corners */
+    /*-fx-background-radius: 10; /* Matching rounded corners for background */
+    /*-fx-padding: 15; /* Padding inside the VBox */
+    /*-fx-spacing: 10; /* Spacing between children */
+}
+
+/* stylelint-enable */

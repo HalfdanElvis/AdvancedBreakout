@@ -6,6 +6,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import View.*;
 import Controller.*;
+import Model.*;
 
 public class SceneManager {
 

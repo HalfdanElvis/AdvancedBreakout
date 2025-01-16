@@ -16,4 +16,23 @@
     -fx-font-size: 24; 
     -fx-text-fill:rgb(241, 241, 241);
 }
+.label {
+    -fx-border-color:rgba(247, 247, 247, 0.6); 
+    -fx-border-width: 2; 
+    -fx-background-radius: 2; 
+    -fx-background-color: rgba(100, 96, 96, 0.6); 
+    -fx-font-size: 24; 
+    -fx-text-fill:rgb(241, 241, 241);
+}
+
+.vbox {
+    -fx-background-color: linear-gradient(to bottom, #944545, #581212); /* Subtle gradient background */
+    -fx-border-color: #4a90e2; /* Blue border */
+    -fx-border-width: 2; /* Border thickness */
+    /*-fx-border-radius: 10; /* Rounded corners */
+    /*-fx-background-radius: 10; /* Matching rounded corners for background */
+    /*-fx-padding: 15; /* Padding inside the VBox */
+    /*-fx-spacing: 10; /* Spacing between children */
+}
+
 /* stylelint-enable */

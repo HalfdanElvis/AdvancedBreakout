@@ -1,5 +1,5 @@
 package Model.Buttons;
-
+import Model.*;
 import Main.GameStart;
 import Main.SceneManager;
 import javafx.scene.control.Button;
