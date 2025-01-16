@@ -6,6 +6,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import View.*;
+
+import java.lang.classfile.ClassFile.Option;
+
 import Controller.*;
 import Model.OptionsModel;
 
@@ -99,7 +102,7 @@ public class SceneManager {
             Media media = new Media(getClass().getResource(musicFilePath).toExternalForm());
             musicPlayer = new MediaPlayer(media);
             musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            musicPlayer.setVolume(0.2);
+            musicPlayer.setVolume(OptionsModel.getMusicVolume());
             musicPlayer.play();
         }
 
@@ -110,10 +113,17 @@ public class SceneManager {
                 Media media = new Media(getClass().getResource(musicFilePath).toExternalForm());
                 musicPlayer = new MediaPlayer(media);
                 musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-                musicPlayer.setVolume(0.2);
+                musicPlayer.setVolume(OptionsModel.getMusicVolume());
                 musicPlayer.play();
             }
         }
+    }
+
+    public void updateVolume() {
+        musicPlayer.setVolume(OptionsModel.getMusicVolume());
+        hit.setVolume(OptionsModel.getSoundVolume());
+        blockBreak.setVolume(OptionsModel.getSoundVolume());
+        buttonPress.setVolume(OptionsModel.getSoundVolume());
     }
 
     public void stopMusic() {

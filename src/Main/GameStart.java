@@ -1,5 +1,8 @@
 package Main;
 
+import java.io.IOException;
+
+import Model.OptionsModel;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -24,7 +27,8 @@ public class GameStart extends Application{
         SceneManager.getInstance().switchToMainMenuView();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        OptionsModel.loadOptions();
         launch(args);
     }
 }

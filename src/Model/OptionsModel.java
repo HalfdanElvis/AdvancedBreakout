@@ -1,12 +1,20 @@
 package Model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Set;
+
+import javax.annotation.processing.Filer;
 
 import javafx.stage.Screen;
 
@@ -15,11 +23,47 @@ import java.io.FileReader;
 public class OptionsModel {
     private static double sceneWidth = Screen.getPrimary().getBounds().getWidth();
     private static double sceneHeight = Screen.getPrimary().getBounds().getHeight();
-    private static double musicVolume = 1;
-    private static double SoundVolume = 1;
+    private static LinkedHashMap<String, Double> optionsMap;
+    private static String filePath = System.getProperty("user.dir")+"/options.txt";
 
-    public static void loadOptions() {
+    private static LinkedHashMap<String, Double> defaultSettings() {
+        LinkedHashMap<String, Double> optionsMap = new LinkedHashMap<>();
+        optionsMap.put("MusicVolume", 0.2);
+        optionsMap.put("SoundVolume", 1.0);
+        return optionsMap;
+    }
 
+    public static void loadOptions() throws IOException {
+        File file = new File(filePath);
+        if (!file.isFile()) {
+            optionsMap = defaultSettings();
+            return;
+        }
+        optionsMap = new LinkedHashMap<>();
+        FileReader fileReader = new FileReader(file);
+        BufferedReader lineReader = new BufferedReader(fileReader);
+        String line = lineReader.readLine();
+
+        while (line != null) {
+            String[] parts = line.split("=", 2);
+            optionsMap.put(parts[0].trim(), Double.valueOf(parts[1].trim()));
+            line = lineReader.readLine();
+        }
+
+        lineReader.close();
+    }
+
+    public static void updateOptions() throws IOException {
+        File file = new File(filePath);
+        if (!file.isFile()) {
+            file.createNewFile();
+        }
+        PrintWriter writer = new PrintWriter(file);
+        Set<String> keys = optionsMap.keySet();
+        for (String key : keys) {
+            writer.println(key+"="+optionsMap.get(key));
+        }
+        writer.close();
     }
 
     public static double getSceneWidth() {
@@ -29,9 +73,9 @@ public class OptionsModel {
         return sceneHeight;
     }
     public static double getMusicVolume() {
-        return musicVolume;
+        return optionsMap.get("MusicVolume");
     }
     public static double getSoundVolume() {
-        return SoundVolume;
+        return optionsMap.get("SoundVolume");
     }
 }
