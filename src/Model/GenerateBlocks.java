@@ -8,8 +8,8 @@ import javafx.scene.paint.Color;
 
 public class GenerateBlocks {
     public static ArrayList<Block> generateBlocks(int level) {
-        double rows = 4+Math.floor(level/5.0);
-        double columns = 5+Math.floor(level/5.0);
+        double rows = 6+Math.floor(level/5.0);
+        double columns = 8+Math.floor(level/5.0);
         ArrayList<Block> blockList = new ArrayList<>();
         double space = Model.OptionsModel.getSceneWidth()/Math.sqrt(columns)/Math.sqrt(rows)/40;
         double blockWidth = Model.OptionsModel.getSceneWidth()/columns-space;

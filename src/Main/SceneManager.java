@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import View.*;
 
 import java.io.IOException;
-import java.lang.classfile.ClassFile.Option;
 
 import Controller.*;
 import Model.OptionsModel;
